@@ -1,2 +1,3 @@
-# Unity 2D Practice
- Unity 2D practices based on Udemy Course
+# Unity Practice
+
+Unity practices based on Udemy Course
