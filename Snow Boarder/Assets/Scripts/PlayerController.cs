@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody2D rb2d;
     private float torqueAmount = 5f;
+    private int reloadDelayTime = 1;
 
     // Start is called before the first frame update
     void Start() {
@@ -28,7 +29,11 @@ public class PlayerController : MonoBehaviour {
     /// <param name="other">The other Collider2D involved in this collision.</param>
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "SnowSurface") {
-            SceneManager.LoadScene("MainGame");
+            Invoke("ReloadScene", reloadDelayTime);
         }
+    }
+
+    void ReloadScene() {
+        SceneManager.LoadScene(0);
     }
 }
