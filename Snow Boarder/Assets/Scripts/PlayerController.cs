@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour {
     /// <param name="other">The other Collider2D involved in this collision.</param>
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "SnowSurface") {
-            Debug.Log("Hit head");
+            SceneManager.LoadScene("MainGame");
         }
     }
 }
