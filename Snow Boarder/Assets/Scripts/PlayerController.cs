@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     /// <summary>
-    /// Kill the player when the player's head hit the snow surface
+    /// Kill the player when the player's head hits the snow surface
     /// </summary>
     /// <param name="other">The other Collider2D involved in this collision.</param>
     void OnTriggerEnter2D(Collider2D other) {
