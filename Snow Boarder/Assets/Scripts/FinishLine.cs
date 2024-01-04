@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour {
 
-
+    public ParticleSystem finishEffect;
     private int reloadDelayTime = 1;
 
     /// <summary>
@@ -14,6 +14,7 @@ public class FinishLine : MonoBehaviour {
     /// <param name="other">The other Collider2D involved in this collision.</param>
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player") {
+            finishEffect.Play();
             Invoke("ReloadScene", reloadDelayTime);
         }
 

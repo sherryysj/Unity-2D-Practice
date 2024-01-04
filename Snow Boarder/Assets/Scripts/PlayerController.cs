@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
+    public ParticleSystem deadEffect;
+
     private Rigidbody2D rb2d;
     private float torqueAmount = 5f;
     private int reloadDelayTime = 1;
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour {
     /// <param name="other">The other Collider2D involved in this collision.</param>
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "SnowSurface") {
+            deadEffect.Play();
             Invoke("ReloadScene", reloadDelayTime);
         }
     }
