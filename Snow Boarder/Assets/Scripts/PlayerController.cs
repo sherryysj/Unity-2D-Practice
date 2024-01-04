@@ -20,4 +20,14 @@ public class PlayerController : MonoBehaviour {
             rb2d.AddTorque(-torqueAmount);
         }
     }
+
+    /// <summary>
+    /// Kill the player when the player's head hit the snow surface
+    /// </summary>
+    /// <param name="other">The other Collider2D involved in this collision.</param>
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == "SnowSurface") {
+            Debug.Log("Hit head");
+        }
+    }
 }
