@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour {
 
     public ParticleSystem deadEffect;
+    public ParticleSystem snowEffect;
 
     private Rigidbody2D rb2d;
     private float torqueAmount = 5f;
@@ -56,5 +57,26 @@ public class PlayerController : MonoBehaviour {
 
     void ReloadScene() {
         SceneManager.LoadScene(0);
+    }
+
+    /// <summary>
+    /// Show snow dust effect when the player hits the snow surface
+    /// </summary>
+    /// <param name="other">The Collision2D data associated with this collision.</param>
+    void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.tag == "SnowSurface") {
+            snowEffect.Play();
+        }
+
+    }
+
+    /// <summary>
+    /// Stop snow dust effect when the player leaves the snow surface
+    /// </summary>
+    /// <param name="other">The Collision2D data associated with this collision.</param>
+    void OnCollisionExit2D(Collision2D other) {
+        if (other.gameObject.tag == "SnowSurface") {
+            snowEffect.Stop();
+        }
     }
 }
